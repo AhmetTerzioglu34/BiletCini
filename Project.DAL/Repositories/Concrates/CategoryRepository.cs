@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Project.DAL.Repositories.Concrates
 {
-    public class CategoryRepository : BaseRepository<Category> , ICategoryReppository
+    public class CategoryRepository : BaseRepository<Category> , ICategoryRepository
     {
         public CategoryRepository(MyContext db) : base(db) 
         {

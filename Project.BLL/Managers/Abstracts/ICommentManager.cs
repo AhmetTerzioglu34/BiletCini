@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.DAL.Repositories.Abstracts
+namespace Project.BLL.Managers.Abstracts
 {
-    public interface ICategoryReppository : IRepository<Category>
+    public interface ICommentManager : IManager<Comment>
     {
     }
 }
