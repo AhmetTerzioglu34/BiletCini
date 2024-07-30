@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Project.CONF.Configurations;
+using Project.DAL.Extensions;
 using Project.ENTITIES.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Project.DAL.ContextClasses
 {
-    public class MyContext : IdentityDbContext<AppUser , AppRole,int,IdentityUserClaim<int>,AppUserRole,IdentityUserLogin<int>,IdentityRoleClaim<int>,IdentityUserToken<int>>
+    public class MyContext : IdentityDbContext<AppUser, AppRole, int, IdentityUserClaim<int>, AppUserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
 
         public MyContext(DbContextOptions<MyContext> opt) : base(opt)
@@ -38,6 +39,8 @@ namespace Project.DAL.ContextClasses
             builder.ApplyConfiguration(new SessionTicketConfiguration());
             builder.ApplyConfiguration(new TicketConfiguration());
             builder.ApplyConfiguration(new PlaceConfiguration());
+
+            UserRoleDataSeedExtension.SeedUsers(builder);
 
         }
         public DbSet<AppUser> AppUsers { get; set; }
