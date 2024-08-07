@@ -1,0 +1,210 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="icon" href="~/OuterImages/Favicon.png">
+
+    <title>BiletCini ADMİN</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/OuterToolsTemplate/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/OuterToolsTemplate/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/OuterToolsTemplate/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="~/OuterToolsTemplate/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="~/OuterToolsTemplate/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="~/OuterToolsTemplate/css/style.css" rel="stylesheet">
+    <link href="~/OuterToolsTemplate/css/style-responsive.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <section id="container" class="">
+        <!--header start-->
+        <header class="header white-bg">
+
+            <!--logo start-->
+            <a asp-area="" asp-action="Index" asp-controller="Shopping" class="logo">Bilet<span>Cini</span></a>
+            <!--logo end-->
+
+            <div class="horizontal-menu navbar-collapse collapse ">
+                <ul class="nav navbar-nav">
+                    <li><a asp-controller="Home" asp-action="Index"> <i class="icon-home"></i>Ana sayfa</a></li>
+
+
+
+                    <li><a asp-controller="User" asp-action="Index">Kullanıcılar</a></li>
+
+                    <li><a href="basic_table.html">Tables</a></li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Extra <b class=" icon-angle-down"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blank.html">Blank Page</a></li>
+                            <li><a href="boxed_page.html">Boxed Page</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="invoice.html">Invoice</a></li>
+                            <li><a href="search_result.html">Search Result</a></li>
+                            <li><a href="404.html">404 Error Page</a></li>
+                            <li><a href="500.html">500 Error Page</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- settings start -->
+                    <!-- settings end -->
+                    <!-- inbox dropdown start-->
+                    <!-- inbox dropdown end -->
+                    <!-- notification dropdown start-->
+                    <!-- notification dropdown end -->
+                </ul>
+            </div>
+            <div class="top-nav ">
+                <ul class="nav pull-right top-menu">
+
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="~/OuterToolsTemplate/img/avatar1_small.jpg">
+                            <span class="username">
+                                <img alt="" src="~/OuterImages/AnonimFoto.jpg">
+                                @(User.Identity.Name ?? "Kullanıcı")
+                            </span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+
+
+                        </ul>
+                </ul>
+                </li>
+                <!-- user login dropdown end -->
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+       
+        <!--sidebar end-->
+        <!--main content start-->
+        
+            <section class="wrapper">
+                @RenderBody()
+            </section>
+       
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                2024 &copy; BiletCini by VectorLab.
+                <a href="#" class="go-top">
+                    <i class="icon-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <!--<script src="js/jquery.js"></script>-->
+    <script type="text/javascript" language="javascript" src="~/OuterToolsTemplate/assets/advanced-datatable/media/js/jquery.js"></script>
+    <script src="~/OuterToolsTemplate/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="~/OuterToolsTemplate/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script type="text/javascript" src="/OuterToolsTemplate/js/hover-dropdown.js"></script>
+    <script type="text/javascript" src="/OuterToolsTemplate/js/hover-dropdown.js"></script>
+    <script src="~/OuterToolsTemplate/js/jquery.scrollTo.min.js"></script>
+    <script src="~/OuterToolsTemplate/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="~/OuterToolsTemplate/js/respond.min.js"></script>
+    <script type="text/javascript" language="javascript" src="~/OuterToolsTemplate/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+
+
+    <!--common script for all pages-->
+    <script src="~/OuterToolsTemplate/js/common-scripts.js"></script>
+
+
+    <script type="text/javascript">
+        /* Formating function for row details */
+        function fnFormatDetails(oTable, nTr) {
+            var aData = oTable.fnGetData(nTr);
+            var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+            sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+            sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+            sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+            sOut += '</table>';
+
+            return sOut;
+        }
+
+        $(document).ready(function () {
+            /*
+             * Insert a 'details' column to the table
+             */
+            var nCloneTh = document.createElement('th');
+            var nCloneTd = document.createElement('td');
+
+            nCloneTd.className = "center";
+
+            $('#hidden-table-info thead tr').each(function () {
+                this.insertBefore(nCloneTh, this.childNodes[0]);
+            });
+
+            $('#hidden-table-info tbody tr').each(function () {
+                this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+            });
+
+            /*
+             * Initialse DataTables, with no sorting on the 'details' column
+             */
+            var oTable = $('#hidden-table-info').dataTable({
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [0] }
+                ],
+                "aaSorting": [[1, 'asc']]
+            });
+
+            /* Add event listener for opening and closing details
+             * Note that the indicator for showing which row is open is not controlled by DataTables,
+             * rather it is done here
+             */
+            $('#hidden-table-info tbody td img').live('click', function () {
+                var nTr = $(this).parents('tr')[0];
+                if (oTable.fnIsOpen(nTr)) {
+                    /* This row is already open - close it */
+                    this.src = "/OuterToolsTemplate/assets/advanced-datatable/examples/examples_support/details_open.png";
+                    oTable.fnClose(nTr);
+                }
+                else {
+                    /* Open this row */
+                    this.src = "/OuterToolsTemplate/assets/advanced-datatable/examples/examples_support/details_close.png";
+                    oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+                }
+            });
+        });
+    </script>
+
+
+</body>
+</html>

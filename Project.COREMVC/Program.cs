@@ -52,6 +52,11 @@ app.UseSession();
 app.UseAuthentication();// Giriþ Yapmak
 app.UseAuthorization(); // Yetkilendirmedir
 
+
+app.MapControllerRoute(
+    name: "Admin",
+    pattern: "{Area}/{controller=User}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

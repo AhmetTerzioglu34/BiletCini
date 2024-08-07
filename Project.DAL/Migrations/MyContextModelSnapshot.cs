@@ -158,8 +158,8 @@ namespace Project.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "5cf365b2-aa69-4cee-aee9-c344ef65270c",
-                            CreatedDate = new DateTime(2024, 7, 30, 17, 17, 2, 987, DateTimeKind.Local).AddTicks(4905),
+                            ConcurrencyStamp = "20c5e411-114e-4c21-a639-1badc2dd63c4",
+                            CreatedDate = new DateTime(2024, 8, 7, 12, 43, 34, 441, DateTimeKind.Local).AddTicks(4954),
                             Name = "Admin",
                             NormalizedName = "ADMIN",
                             Status = 1
@@ -253,16 +253,16 @@ namespace Project.DAL.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ddcc8df0-f7bc-4a15-8166-e2c5c3226a84",
-                            CreatedDate = new DateTime(2024, 7, 30, 17, 17, 2, 987, DateTimeKind.Local).AddTicks(5144),
+                            ConcurrencyStamp = "eceb5c44-6d5e-4a9e-80fa-5d94b6fc7287",
+                            CreatedDate = new DateTime(2024, 8, 7, 12, 43, 34, 441, DateTimeKind.Local).AddTicks(5221),
                             Email = "ahmet@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "AHMET@GMAIL.COM",
                             NormalizedUserName = "AHMET123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBUmHJkrJkRINZCVqpv02WwiKWZDUwgWjmBePEfsjKYrKsRjjXvtZB67hFfO4P+UnQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIGTICN3pJwUATQmijZQpG/0bWEUdNJyztOXqsovx6oeSN3OYz1vjwcGmKv3SEP6xw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f6d3cd98-a128-4d26-afd2-a6611ef9bb63",
+                            SecurityStamp = "aa819b05-6f67-434c-9052-84bb87fd38f9",
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "ahmet123"
@@ -345,7 +345,7 @@ namespace Project.DAL.Migrations
                         {
                             UserId = 1,
                             RoleId = 1,
-                            CreatedDate = new DateTime(2024, 7, 30, 17, 17, 3, 55, DateTimeKind.Local).AddTicks(6753),
+                            CreatedDate = new DateTime(2024, 8, 7, 12, 43, 34, 500, DateTimeKind.Local).AddTicks(5123),
                             Status = 1
                         });
                 });
@@ -463,6 +463,9 @@ namespace Project.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ImagePath1")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -477,6 +480,9 @@ namespace Project.DAL.Migrations
                     b.Property<string>("MovieName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartingDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");

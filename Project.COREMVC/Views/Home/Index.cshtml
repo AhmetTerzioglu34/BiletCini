@@ -1,8 +1,325 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    .container {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #f5f5f5;
+    }
+
+    .item {
+        position: relative;
+        display: inline-block;
+        width: 25%;
+        margin-right: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+        .item:last-child {
+            margin-right: 0;
+        }
+
+    .title {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .selection {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+</style>
+
+<div class="container">
+    <div class="item">
+        <div class="title">Şehir</div>
+        <div class="selection">Şehir Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
+    </div>
+    <div class="item">
+        <div class="title">Mekan</div>
+        <div class="selection">Mekan Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
+    </div>
+    <div class="item">
+        <div class="title">Tür</div>
+        <div class="selection">Tür Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
+    </div>
+    <div class="item">
+        <div class="title">Etkinlik Tarihi</div>
+        <div class="selection">Etkinlik Tarihi Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
+    </div>
 </div>
+
+<br />
+<br />
+<br />
+
+
+
+<script>
+    // Tüm item öğelerini seçiyoruz
+    const items = document.querySelectorAll('.item');
+
+    // Container üzerine fare ile geldiğimizde her bir item'a tıklama olayını tetikliyoruz
+    document.querySelector('.container').addEventListener('mouseover', function () {
+        items.forEach(function (item) {
+            item.click(); // Her item'a tıklama olayı
+        });
+    });
+
+   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row product-list">
+    <div class ="col-md-1"></div>
+
+    <div class="col-md-2">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                <a href="#" class="adtocart">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Leopard Shirt Dress
+                    </a>
+                </h4>
+                <p class="price">$300.00</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-2">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                <a href="#" class="adtocart">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Leopard Shirt Dress
+                    </a>
+                </h4>
+                <p class="price">$300.00</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-2">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                <a href="#" class="adtocart">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Leopard Shirt Dress
+                    </a>
+                </h4>
+                <p class="price">$300.00</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-2">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                <a href="#" class="adtocart">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Leopard Shirt Dress
+                    </a>
+                </h4>
+                <p class="price">$300.00</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-2">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                <a href="#" class="adtocart">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Leopard Shirt Dress
+                    </a>
+                </h4>
+                <p class="price">$300.00</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-1"></div>
+   
+  
+</div>
+ 
+
+   
+  
+
+
+
+
+
+
+
+
+
+@* 
+
+
+
+
+
+
+
+
+
+<div class="movies_section_2 layout_padding">
+
+
+    <div class="movies_main">
+        <div class="iamge_movies_main">
+            <div class="iamge_movies">
+                <div class="image_3">
+                    <img src="~/OuterTools/images/img-3.png" class="image" style="width:100%">
+                    <div class="middle">
+                        <div class="playnow_bt">Play Now</div>
+                    </div>
+                </div>
+                <h1 class="code_text">CADE Prlor</h1>
+                <p class="there_text">There are many variations </p>
+                <div class="star_icon">
+                    <ul>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="iamge_movies">
+                <div class="image_3">
+                    <img src="~/OuterTools/images/img-4.png" class="image" style="width:100%">
+                    <div class="middle">
+                        <div class="playnow_bt">Play Now</div>
+                    </div>
+                </div>
+                <h1 class="code_text">Bradon</h1>
+                <p class="there_text">There are many variations </p>
+                <div class="star_icon">
+                    <ul>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="iamge_movies">
+                <div class="image_3">
+                    <img src="~/OuterTools/images/img-5.png" class="image" style="width:100%">
+                    <div class="middle">
+                        <div class="playnow_bt">Play Now</div>
+                    </div>
+                </div>
+                <h1 class="code_text">Anton Levin</h1>
+                <p class="there_text">There are many variations </p>
+                <div class="star_icon">
+                    <ul>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="iamge_movies">
+                <div class="image_3">
+                    <img src="~/OuterTools/images/img-6.png" class="image" style="width:100%">
+                    <div class="middle">
+                        <div class="playnow_bt">Play Now</div>
+                    </div>
+                </div>
+                <h1 class="code_text">Sacha Styles</h1>
+                <p class="there_text">There are many variations </p>
+                <div class="star_icon">
+                    <ul>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="iamge_movies">
+                <div class="image_3">
+                    <img src="~/OuterTools/images/img-7.png" class="image" style="width:100%">
+                    <div class="middle">
+                        <div class="playnow_bt">Play Now</div>
+                    </div>
+                </div>
+                <h1 class="code_text">Katledrazdu</h1>
+                <p class="there_text">There are many variations </p>
+                <div class="star_icon">
+                    <ul>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                        <li><a href="#"><img src="~/OuterTools/images/star-icon.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
