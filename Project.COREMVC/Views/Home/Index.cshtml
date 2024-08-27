@@ -1,211 +1,239 @@
-﻿
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
+﻿@model CategoryCityPlacePageVm
 
-    .container {
-        display: flex;
-        width: 80%;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        background-color: #f5f5f5;
-    }
 
-    .item {
-        position: relative;
-        display: inline-block;
-        width: 25%;
-        margin-right: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #fff;
-        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-    }
+<form>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Dropdown Menus</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
 
-        .item:last-child {
-            margin-right: 0;
+            .container {
+                display: flex;
+                width: 60%;
+                margin: 0 auto;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                background-color: #f5f5f5;
+                margin-top: 100px;
+            }
+
+            .item {
+                position: relative;
+                display: inline-block;
+                width: 25%;
+                margin-right: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #fff;
+                box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+            }
+
+                .item:last-child {
+                    margin-right: 0;
+                }
+
+            .title {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .selection {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                width: 100%;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+                .dropdown-content a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                    .dropdown-content a:hover {
+                        background-color: #f1f1f1;
+                    }
+
+            .item:hover .dropdown-content {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        @{
+            // string selectedCity = null;
+          
+            //     foreach (GetCityPureVm item in Model.GetCityPureVms)
+            //     {
+                    
+            //             selectedCity = item.CityName; // Her seferinde son şehrin adını atar.
+                    
+            //     }
+
+           
+            
         }
-
-    .title {
-        font-size: 14px;
-        margin-bottom: 5px;
-    }
-
-    .selection {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-</style>
-
-<div class="container">
-    <div class="item">
-        <div class="title">Şehir</div>
-        <div class="selection">Şehir Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
-    </div>
-    <div class="item">
-        <div class="title">Mekan</div>
-        <div class="selection">Mekan Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
-    </div>
-    <div class="item">
-        <div class="title">Tür</div>
-        <div class="selection">Tür Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
-    </div>
-    <div class="item">
-        <div class="title">Etkinlik Tarihi</div>
-        <div class="selection">Etkinlik Tarihi Seçiniz <span style="font-size: 12px;">&#8595;</span></div>
-    </div>
-</div>
-
-<br />
-<br />
-<br />
-
-
-
-<script>
-    // Tüm item öğelerini seçiyoruz
-    const items = document.querySelectorAll('.item');
-
-    // Container üzerine fare ile geldiğimizde her bir item'a tıklama olayını tetikliyoruz
-    document.querySelector('.container').addEventListener('mouseover', function () {
-        items.forEach(function (item) {
-            item.click(); // Her item'a tıklama olayı
-        });
-    });
-
-   
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row product-list">
-    <div class ="col-md-1"></div>
-
-    <div class="col-md-2">
-        <section class="panel">
-            <div class="pro-img-box">
-                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
-                <a href="#" class="adtocart">
-                    <i class="icon-shopping-cart"></i>
-                </a>
+        <div class="container">
+            <div class="item">
+                <div class="title">Şehir</div>
+                <div class="btn-group">
+                    <button class="btn btn-white" type="button" style="width:245px"></button>
+                    <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
+                    <ul role="menu" class="dropdown-menu">
+                        @foreach (GetCityPureVm item in Model.GetCityPureVms)
+                        {
+                            <li><a asp-route-city="@item.CityName">@item.CityName</a></li>
+                        }
+                    </ul>
+                </div>
             </div>
+            <div class="item">
+                <div class="title">Mekan</div>
+                <div class="btn-group">
+                    <button class="btn btn-white" type="button" style="width:245px">Şehir Seçiniz</button>
+                    <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
+                    <ul role="menu" class="dropdown-menu">
 
-            <div class="panel-body text-center">
-                <h4>
-                    <a href="#" class="pro-title">
-                        Leopard Shirt Dress
-                    </a>
-                </h4>
-                <p class="price">$300.00</p>
+
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </div>
             </div>
-        </section>
-    </div>
-    <div class="col-md-2">
-        <section class="panel">
-            <div class="pro-img-box">
-                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
-                <a href="#" class="adtocart">
-                    <i class="icon-shopping-cart"></i>
-                </a>
+            <div class="item">
+                <div class="title">Tür</div>
+                <div class="btn-group">
+                    <button class="btn btn-white" type="button" style="width:245px"></button>
+                    <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
+                    <ul role="menu" class="dropdown-menu">
+
+
+                        <li<a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </div>
             </div>
+            <div class="item">
+                <div class="title">Etkinlik Tarihi</div>
+                <div class="btn-group">
+                    <button class="btn btn-white" type="button" style="width:245px"></button>
+                    <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
+                    <ul role="menu" class="dropdown-menu">
 
-            <div class="panel-body text-center">
-                <h4>
-                    <a href="#" class="pro-title">
-                        Leopard Shirt Dress
-                    </a>
-                </h4>
-                <p class="price">$300.00</p>
+
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </div>
             </div>
-        </section>
-    </div>
-    <div class="col-md-2">
-        <section class="panel">
-            <div class="pro-img-box">
-                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
-                <a href="#" class="adtocart">
-                    <i class="icon-shopping-cart"></i>
-                </a>
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <div class="row product-list">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-2">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                    </div>
+
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title">
+                                Leopard Shirt Dress
+                            </a>
+                        </h4>
+                    </div>
+                </section>
             </div>
+            <div class="col-md-2">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                    </div>
 
-            <div class="panel-body text-center">
-                <h4>
-                    <a href="#" class="pro-title">
-                        Leopard Shirt Dress
-                    </a>
-                </h4>
-                <p class="price">$300.00</p>
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title">
+                                Leopard Shirt Dress
+                            </a>
+                        </h4>
+                    </div>
+                </section>
             </div>
-        </section>
-    </div>
-    <div class="col-md-2">
-        <section class="panel">
-            <div class="pro-img-box">
-                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
-                <a href="#" class="adtocart">
-                    <i class="icon-shopping-cart"></i>
-                </a>
+            <div class="col-md-2">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                    </div>
+
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title">
+                                Leopard Shirt Dress
+                            </a>
+                        </h4>
+                    </div>
+                </section>
             </div>
+            <div class="col-md-2">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                    </div>
 
-            <div class="panel-body text-center">
-                <h4>
-                    <a href="#" class="pro-title">
-                        Leopard Shirt Dress
-                    </a>
-                </h4>
-                <p class="price">$300.00</p>
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title">
+                                Leopard Shirt Dress
+                            </a>
+                        </h4>
+                    </div>
+                </section>
             </div>
-        </section>
-    </div>
-    <div class="col-md-2">
-        <section class="panel">
-            <div class="pro-img-box">
-                <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
-                <a href="#" class="adtocart">
-                    <i class="icon-shopping-cart"></i>
-                </a>
+            <div class="col-md-2">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img src="~/OuterToolsTemplate/img/product-list/pro-1.jpg" alt="" />
+                    </div>
+
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title">
+                                Leopard Shirt Dress
+                            </a>
+                        </h4>
+                    </div>
+                </section>
             </div>
+            <div class="col-md-1"></div>
+        </div>
 
-            <div class="panel-body text-center">
-                <h4>
-                    <a href="#" class="pro-title">
-                        Leopard Shirt Dress
-                    </a>
-                </h4>
-                <p class="price">$300.00</p>
-            </div>
-        </section>
-    </div>
-    <div class="col-md-1"></div>
-   
-  
-</div>
- 
-
-   
-  
+        <br />
 
 
-
-
-
-
+    </body>
+</html>
+</form>
 
 
 

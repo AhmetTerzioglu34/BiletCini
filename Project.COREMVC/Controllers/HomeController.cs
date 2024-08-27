@@ -8,6 +8,9 @@ using System.Diagnostics;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 using Project.BLL.Managers.Abstracts;
 using Project.COREMVC.Models.PureVms.AppUserPureVms;
+using Project.COREMVC.Models.PageVms.CategoryCityPlacePageVms;
+using Project.BLL.Managers.Concretes;
+using Project.COREMVC.Models.PureVms.CityPureVms;
 
 namespace Project.COREMVC.Controllers
 {
@@ -19,14 +22,16 @@ namespace Project.COREMVC.Controllers
         readonly SignInManager<AppUser> _signInManager;
         readonly RoleManager<AppRole> _roleManager;
         readonly IAppUserProfileManager _appUserProfileManager;
+        readonly ICityManager _cityManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IAppUserProfileManager appUserProfileManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IAppUserProfileManager appUserProfileManager, ICityManager cityManager)
         {
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _appUserProfileManager = appUserProfileManager;
+            _cityManager = cityManager;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -34,10 +39,24 @@ namespace Project.COREMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
-        public IActionResult Index()
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            List<City> cities = await _cityManager.GetAllAsync();
+
+            List<GetCityPureVm> cityPureVMs = cities.Select(cityPureVM => new GetCityPureVm
+            {
+                CityName = cityPureVM.CityName
+
+            }).ToList();
+
+
+            CategoryCityPlacePageVm categoryCityPlacePageVM = new()
+            {
+                GetCityPureVms = cityPureVMs
+            };
+            return View(categoryCityPlacePageVM);
         }
 
 
